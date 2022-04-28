@@ -3,6 +3,5 @@ name: deploy
 
 steps:
   - name: unit-test
-    image: node:1
     commands:
       - echo "Hello worlds"
