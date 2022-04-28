@@ -1,7 +1,14 @@
 kind: pipeline
-name: deploy
+name: default
 
 steps:
-  - name: unit-test
+  - name: write
+    image: alpine
     commands:
-      - echo "Hello worlds"
+      - echo -n "this-is-a-test" > .tags
+
+  - name: build
+    image: plugins/docker
+    settings:
+      dry_run: true
+      repo: foo/bar
